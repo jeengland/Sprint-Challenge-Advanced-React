@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import PlayerList from './components/PlayerList'
 
+import './App.css'
+
 class App extends React.Component {
   constructor() {
     super();
