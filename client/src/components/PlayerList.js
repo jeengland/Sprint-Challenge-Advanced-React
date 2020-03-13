@@ -15,7 +15,7 @@ const PlayerList = (props) => {
            <button onClick={handleDarkMode}>Dark Mode</button>
            {data.map((player) => {
                return (
-                   <PlayerCard player={player} />
+                   <PlayerCard player={player} key={player.id}/>
                )
            })}
        </div> 

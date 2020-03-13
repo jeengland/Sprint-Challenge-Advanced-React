@@ -3,7 +3,7 @@ import React from 'react';
 const PlayerCard = (props) => {
     const player = props.player;
     return (
-        <div key={player.id} className='playerCard'>
+        <div className='playerCard' data-testid='playerCard'>
             <h2 className='name'>{player.name}</h2>
             <p>{player.country}</p>
             <p>Searches: {player.searches}</p>

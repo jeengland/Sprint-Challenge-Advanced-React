@@ -16,6 +16,7 @@ class App extends React.Component {
     axios
       .get('http://localhost:5000/api/players')
       .then((response) => this.setState({ data: response.data }))
+      .catch((error) => console.error(error))
   }
   render() {
     return (

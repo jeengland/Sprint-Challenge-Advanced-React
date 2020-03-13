@@ -1,9 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import App from "./App";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+test("renders App without crashing", () => {
+  render(<App />);
 });
+
+test("renders cards after API call", async () => {
+  const { findAllByTestId } = render(<App />);
+  await findAllByTestId('playerCard');
+})
+
+test("the dark mode correctly", () => {
+  const { getByText } = render(<App />);
+  const darkToggle = getByText(/dark mode/i);
+  expect(document.body.classList.contains('dark-mode')).toBe(false);
+  fireEvent.click(darkToggle);
+  expect(document.body.classList.contains('dark-mode')).toBe(true);
+})
