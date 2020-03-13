@@ -11,7 +11,7 @@ test("renders cards after API call", async () => {
   await findAllByTestId('playerCard');
 })
 
-test("the dark mode correctly", () => {
+test("dark mode button works correctly", () => {
   const { getByText } = render(<App />);
   const darkToggle = getByText(/dark mode/i);
   expect(document.body.classList.contains('dark-mode')).toBe(false);
