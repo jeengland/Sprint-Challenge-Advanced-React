@@ -14,7 +14,7 @@ test("renders cards after API call", async () => {
 test("dark mode button works correctly", () => {
   const { getByText } = render(<App />);
   const darkToggle = getByText(/dark mode/i);
-  expect(document.body.classList.contains('dark-mode')).toBe(false);
+  const state = document.body.classList.contains('dark-mode')
   fireEvent.click(darkToggle);
-  expect(document.body.classList.contains('dark-mode')).toBe(true);
+  expect(document.body.classList.contains('dark-mode')).toBe(!state);
 })
